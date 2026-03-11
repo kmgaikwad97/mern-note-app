@@ -1,0 +1,20 @@
+{
+  "name": "mern-auth-app",
+  "version": "1.0.0",
+  "description": "MERN Stack Auth App with JWT + Refresh Tokens + MUI",
+  "scripts": {
+    "setup": "npm run install:all && npm run copy:env",
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install && cd ..",
+    "copy:env": "cp backend/.env.example backend/.env && echo \"✅ .env created from .env.example — please edit backend/.env with your MONGO_URI\"",
+    "dev": "concurrently --names \"BACKEND,FRONTEND\" --prefix-colors \"cyan,magenta\" \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "start": "concurrently --names \"BACKEND,FRONTEND\" --prefix-colors \"cyan,magenta\" \"npm run start:backend\" \"npm run start:frontend\"",
+    "start:backend": "cd backend && npm start",
+    "start:frontend": "cd frontend && npm run preview"
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "devDependencies": {}
+}
